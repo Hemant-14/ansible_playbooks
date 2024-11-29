@@ -1,0 +1,10 @@
+---
+- name: Installations using host scope vars
+  hosts: 172.31.17.156
+  tasks:
+    - name: Installing git
+      apt:
+        name: "{{g}}"
+        state: "{{h}}"
+        update_cache: "{{i}}"
+...

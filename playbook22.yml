@@ -1,0 +1,29 @@
+---
+- name: Copfiguring apache2
+  hosts: all
+  tasks:
+    - name: Install apache2
+      apt:
+        name: apache2
+        state: present
+        update_cache: yes
+      notify: check status    
+    - name: Edit the index.html file
+      copy:
+        content: "Welcome"
+        dest: /var/www/html/index.html
+      notify: restart service
+  handlers:
+    - name: restart service
+      service:
+        name: apache2
+        state: restarted
+    - name: check status
+      uri:
+        url: "{{item}}"
+        status_code: 200
+      with_items:
+        - http://172.31.17.156
+        - http://172.31.22.96    
+...
+
