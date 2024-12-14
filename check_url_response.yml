@@ -1,0 +1,11 @@
+---
+- name: Check apache response on all servers
+  uri:
+    url: "{{item}}"
+    status_code: 200
+  with_items:
+    - http://172.31.17.156
+    - http://172.31.22.96
+...
+
+# this 4th child playbook to config apache2

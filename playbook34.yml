@@ -1,0 +1,10 @@
+---
+- name: Download the jenkins.war file
+  get_url:
+    url: https://get.jenkins.io/war-stable/2.479.2/jenkins.war
+    dest: /tmp
+...
+
+
+
+# this is a child playbook as it only contains modules

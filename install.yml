@@ -1,0 +1,11 @@
+---
+- name: Install apache2
+  apt:
+    name: apache2
+    state: present
+    update_cache: yes
+...
+
+
+
+# this is a child playbook 1 to configure apache2 with include_task module

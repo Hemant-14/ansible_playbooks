@@ -1,0 +1,8 @@
+---
+- name: Restart apache2
+  service:
+    name: apache2
+    state: restarted
+...
+
+# this is 3rd child playbook for apache2 config
