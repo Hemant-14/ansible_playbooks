@@ -1,0 +1,10 @@
+---
+- name: rukhja bhai
+  hosts: all
+  tasks:
+    - name: Pause for 50 seconds
+      pause:
+        seconds: "{{l}}"
+    - name: including response check
+      include_tasks: check_tomcat_response.yml
+...

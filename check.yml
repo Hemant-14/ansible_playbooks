@@ -1,0 +1,12 @@
+---
+- name: Check tomcat response on all servers
+  hosts: 172.31.17.156
+  tasks:
+    - name: checking tomcat server1
+      uri:
+       url: "{{item.a}}"
+       status_code: "{{item.b}}"
+      with_items:
+       - {a: "{{m}}",b: "{{n}}"}
+       - {a: "{{o}}",b: "{{n}}"}
+...
