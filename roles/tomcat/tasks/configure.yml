@@ -1,0 +1,6 @@
+---
+- name: copying modified xml file
+  copy:
+    src: "{{file1}}"
+    dest: "{{dest1}}"
+...

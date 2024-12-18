@@ -1,0 +1,9 @@
+---
+- name: editing and replacing the html file
+  copy:
+    content: "{{content1}}"
+    dest: "{{dest1}}"
+  notify:
+    - restart service
+    - check response
+...

@@ -1,0 +1,12 @@
+---
+# vars file for nginx
+pkg1: nginx
+state1: present
+cache1: yes
+content1: "hello hi world"
+dest1: /var/www/html/index.nginx-debian.html
+server1: "http://172.31.17.156:80"
+server2: "http://172.31.22.96"
+state2: restarted
+status1: 200
+...

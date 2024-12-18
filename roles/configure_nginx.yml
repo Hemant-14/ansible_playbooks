@@ -1,0 +1,7 @@
+---
+- name: configuration of nginx
+  hosts: all
+  become: true
+  roles:
+    - nginx
+...

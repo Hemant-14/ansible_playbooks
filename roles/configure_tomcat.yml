@@ -1,0 +1,6 @@
+---
+- name: configuring tomcat10 and tomcat10-adimn
+  hosts: all
+  roles:
+    - tomcat
+...

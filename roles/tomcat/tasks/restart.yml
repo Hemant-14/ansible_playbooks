@@ -1,0 +1,9 @@
+---
+- name: restart servers
+  service:
+    name: "{{pkg1}}"
+    state: "{{state3}}"
+- name: pause the task for url check
+  pause:
+    seconds: "{{time1}}"
+...

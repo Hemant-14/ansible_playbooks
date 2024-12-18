@@ -1,0 +1,9 @@
+---
+- name: check the response for apache on servers
+  uri:
+    url: "{{item}}"
+    staus_code: 200
+  with_items:
+    - http://172.31.17.156
+    - http://172.31.22.96
+...
