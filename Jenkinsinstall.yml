@@ -1,0 +1,45 @@
+---
+- name: Installation of Jenkins and other services on single server 
+  hosts: localhost
+  connection: local
+  tasks:
+    - name: Installing multiple applications for Jenkins ci-cd
+      apt:
+        name: "{{item}}"
+        state: present
+        update_cache: yes
+      with_items:
+        - openjdk-17-jdk
+        - maven
+        - git
+    - name: installing Jenkins on controller
+      shell: sh jenkinsconfig.sh
+- name: Installation of tomcat10 and tomcat10-admin on QA and prod servers
+  hosts: combined
+  tasks:
+    - name: Installing tomcat10 and tomcat10-admin on remaing servers
+      apt:
+        name: "{{item.a}}"
+        state: present
+        update_cache: "{{item.b}}"
+      with_items:
+         - {a: tomcat10,b: yes}
+         - {a: tomcat10-admin,b: no}
+    - name: Copy modified tomcat user .xml file
+      copy:
+        src: /home/ubuntu/tomcat-users.xml
+        dest: /etc/tomcat10
+      notify: Restart tomcat
+    - name: this playbook is replaced by
+      debug:
+        msg: "playbook33 in the notes"
+  handlers:      
+    - name: Restart tomcat
+      service:
+        name: tomcat10
+        state: restarted
+...
+
+
+
+# this is replaced by playbook33

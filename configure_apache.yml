@@ -1,5 +1,5 @@
 ---
-- name: Configure apache2 using multiple chpld playbooks
+- name: Configure apache2 using multiple child playbooks
   hosts: all
   tasks:
     - name: Call multiple child playbooks
