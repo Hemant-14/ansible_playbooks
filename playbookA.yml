@@ -1,9 +1,0 @@
----
-- name: Installation on local node controller
-  hosts: controller
-  tasks:
-    - name: installing tree app
-      apt:
-        name: tree
-        state: present
-... 
